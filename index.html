@@ -75,7 +75,7 @@
         }
       }
 
-      /* Floating Particles */
+      /* Optimized Particles */
       .particles {
         position: fixed;
         top: 0;
@@ -84,17 +84,19 @@
         height: 100%;
         z-index: -1;
         pointer-events: none;
+        will-change: transform;
       }
 
       .particle {
         position: absolute;
-        width: 4px;
-        height: 4px;
+        width: 3px;
+        height: 3px;
         background: var(--accent);
         border-radius: 50%;
-        animation: float 15s infinite linear;
-        opacity: 0.6;
-        box-shadow: 0 0 10px var(--accent);
+        animation: float 20s infinite linear;
+        opacity: 0.4;
+        box-shadow: 0 0 6px var(--accent);
+        will-change: transform;
       }
 
       @keyframes float {
@@ -180,7 +182,16 @@
         }
       }
 
-      /* PDF Viewer Container */
+      /* Hardware Acceleration for Animations */
+      .bg-animation,
+      .pdf-container,
+      h1,
+      .particle {
+        will-change: transform;
+        transform: translateZ(0);
+      }
+
+      /* Optimized PDF Viewer Container */
       .pdf-container {
         width: 100%;
         max-width: 900px;
@@ -193,8 +204,9 @@
         box-shadow: 0 20px 40px var(--shadow),
           0 0 0 1px rgba(255, 255, 255, 0.05),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        animation: containerFloat 6s ease-in-out infinite;
+        animation: containerFloat 8s ease-in-out infinite;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
       }
 
       .pdf-container:hover {
@@ -311,209 +323,6 @@
 
       .download-btn:active {
         transform: translateY(-2px) scale(1.02);
-      }
-
-      /* GitHub Actions Status Section */
-      .status-section {
-        margin-bottom: 3rem;
-        text-align: center;
-        animation: fadeInUp 1s ease-out 0.5s both;
-      }
-
-      .status-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem 2rem;
-        background: rgba(34, 197, 94, 0.1);
-        border: 1px solid rgba(34, 197, 94, 0.3);
-        border-radius: 50px;
-        color: #22c55e;
-        font-weight: 600;
-        font-size: 1.1rem;
-        position: relative;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 8px 32px rgba(34, 197, 94, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      .status-badge:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 40px rgba(34, 197, 94, 0.3);
-      }
-
-      .status-icon {
-        font-size: 1.5rem;
-        animation: rocket 2s ease-in-out infinite;
-      }
-
-      @keyframes rocket {
-        0%,
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-5px) rotate(5deg);
-        }
-      }
-
-      .status-pulse {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(34, 197, 94, 0.1);
-        border-radius: 50px;
-        animation: pulse-green 2s infinite;
-      }
-
-      @keyframes pulse-green {
-        0% {
-          transform: scale(1);
-          opacity: 0.5;
-        }
-        50% {
-          transform: scale(1.05);
-          opacity: 0.2;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 0.5;
-        }
-      }
-
-      .deployment-info {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-        font-size: 0.9rem;
-        opacity: 0.8;
-      }
-
-      .deploy-time,
-      .commit-hash {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: var(--glass);
-        border-radius: 20px;
-        border: 1px solid var(--glass-border);
-        backdrop-filter: blur(10px);
-      }
-
-      .deploy-time::before {
-        content: "⏰";
-      }
-
-      .commit-hash::before {
-        content: "📝";
-      }
-
-      /* Workflow Section */
-      .workflow-section {
-        margin-top: 3rem;
-        padding: 2rem;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-      }
-
-      .workflow-section h3 {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 1.5rem;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .workflow-steps {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .step {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1.5rem;
-        background: var(--glass);
-        border-radius: 16px;
-        border: 1px solid var(--glass-border);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .step::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-        background: var(--gradient);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .step.completed::before {
-        opacity: 1;
-      }
-
-      .step:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-      }
-
-      .step-icon {
-        width: 40px;
-        height: 40px;
-        background: #22c55e;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: white;
-        box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-        animation: stepPulse 2s infinite;
-      }
-
-      @keyframes stepPulse {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-        }
-        50% {
-          box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
-        }
-      }
-
-      .step-info {
-        flex: 1;
-      }
-
-      .step-title {
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-        color: var(--light);
-      }
-
-      .step-description {
-        font-size: 0.9rem;
-        opacity: 0.7;
-        line-height: 1.4;
       }
 
       @keyframes fadeInUp {
@@ -672,21 +481,6 @@
     <div class="container">
       <h1 data-text="My Resume">My Resume</h1>
 
-      <!-- GitHub Actions Status Badge -->
-      <div class="status-section">
-        <div class="status-badge" id="buildStatus">
-          <span class="status-icon">🚀</span>
-          <span class="status-text">Deployed via GitHub Actions</span>
-          <div class="status-pulse"></div>
-        </div>
-        <div class="deployment-info">
-          <span class="deploy-time" id="deployTime"
-            >Last deployed: Loading...</span
-          >
-          <span class="commit-hash" id="commitHash">Commit: Loading...</span>
-        </div>
-      </div>
-
       <div class="pdf-container">
         <iframe src="resume.pdf" class="pdf-viewer" title="Resume PDF"></iframe>
 
@@ -697,47 +491,6 @@
             Download Resume
           </a>
         </div>
-
-        <!-- GitHub Actions Workflow Visualization -->
-        <div class="workflow-section">
-          <h3>🔄 CI/CD Pipeline Status</h3>
-          <div class="workflow-steps">
-            <div class="step completed" data-step="checkout">
-              <div class="step-icon">✓</div>
-              <div class="step-info">
-                <div class="step-title">Repository Checkout</div>
-                <div class="step-description">
-                  Code retrieved from main branch
-                </div>
-              </div>
-            </div>
-            <div class="step completed" data-step="build">
-              <div class="step-icon">✓</div>
-              <div class="step-info">
-                <div class="step-title">Build & Optimize</div>
-                <div class="step-description">
-                  Assets optimized and compressed
-                </div>
-              </div>
-            </div>
-            <div class="step completed" data-step="test">
-              <div class="step-icon">✓</div>
-              <div class="step-info">
-                <div class="step-title">Quality Checks</div>
-                <div class="step-description">
-                  Lighthouse & accessibility tests passed
-                </div>
-              </div>
-            </div>
-            <div class="step completed" data-step="deploy">
-              <div class="step-icon">✓</div>
-              <div class="step-info">
-                <div class="step-title">Deploy to Production</div>
-                <div class="step-description">Live on GitHub Pages</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -745,17 +498,17 @@
     <div class="scroll-indicator"></div>
 
     <script>
-      // Particle System
+      // Optimized Particle System
       function createParticles() {
         const particlesContainer = document.getElementById("particles");
-        const particleCount = 50;
+        const particleCount = 25; // Reduced from 50
 
         for (let i = 0; i < particleCount; i++) {
           const particle = document.createElement("div");
           particle.className = "particle";
           particle.style.left = Math.random() * 100 + "%";
-          particle.style.animationDelay = Math.random() * 15 + "s";
-          particle.style.animationDuration = Math.random() * 10 + 10 + "s";
+          particle.style.animationDelay = Math.random() * 20 + "s";
+          particle.style.animationDuration = Math.random() * 10 + 15 + "s";
           particlesContainer.appendChild(particle);
         }
       }
@@ -768,28 +521,50 @@
         }, 1500);
       }
 
-      // Smooth Mouse Tracking Effect
+      // Optimized Mouse Tracking Effect
       function initMouseTracking() {
         const container = document.querySelector(".pdf-container");
+        let mouseX = 0;
+        let mouseY = 0;
+        let isHovering = false;
 
-        document.addEventListener("mousemove", (e) => {
-          const { clientX, clientY } = e;
+        function updateMousePosition(e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        }
+
+        function applyTransform() {
+          if (!isHovering) return;
+
           const { innerWidth, innerHeight } = window;
-
-          const xPos = (clientX / innerWidth - 0.5) * 20;
-          const yPos = (clientY / innerHeight - 0.5) * 20;
+          const xPos = (mouseX / innerWidth - 0.5) * 10; // Reduced intensity
+          const yPos = (mouseY / innerHeight - 0.5) * 10;
 
           container.style.transform = `
             perspective(1000px) 
-            rotateY(${xPos * 0.1}deg) 
-            rotateX(${-yPos * 0.1}deg) 
+            rotateY(${xPos * 0.05}deg) 
+            rotateX(${-yPos * 0.05}deg) 
             translateZ(0)
           `;
+
+          if (isHovering) {
+            requestAnimationFrame(applyTransform);
+          }
+        }
+
+        container.addEventListener("mouseenter", () => {
+          isHovering = true;
+          applyTransform();
         });
 
         container.addEventListener("mouseleave", () => {
+          isHovering = false;
           container.style.transform =
             "perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0)";
+        });
+
+        document.addEventListener("mousemove", updateMousePosition, {
+          passive: true,
         });
       }
 
@@ -875,15 +650,28 @@
       `;
       document.head.appendChild(style);
 
-      // Parallax Scroll Effect
+      // Optimized Parallax Scroll Effect
       function initParallaxScroll() {
-        window.addEventListener("scroll", () => {
-          const scrolled = window.pageYOffset;
-          const parallax = document.querySelector(".bg-animation");
-          const speed = scrolled * 0.5;
+        let ticking = false;
+        const parallax = document.querySelector(".bg-animation");
 
-          parallax.style.transform = `translateY(${speed}px)`;
-        });
+        function updateParallax() {
+          const scrolled = window.pageYOffset;
+          const speed = scrolled * 0.2; // Reduced multiplier for smoother effect
+          parallax.style.transform = `translate3d(0, ${speed}px, 0)`; // Use translate3d for hardware acceleration
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(updateParallax);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
       }
 
       // PDF Load Detection
@@ -916,251 +704,7 @@
         enhanceDownloadButton();
         initParallaxScroll();
         handlePDFLoad();
-        initGitHubActions();
       });
-
-      // GitHub Actions Integration
-      function initGitHubActions() {
-        // Simulate fetching deployment info (in real implementation, this would come from GitHub API)
-        const deployTime = new Date().toLocaleString();
-        const commitHash = generateCommitHash();
-
-        // Update deployment info
-        document.getElementById(
-          "deployTime"
-        ).textContent = `Last deployed: ${deployTime}`;
-        document.getElementById(
-          "commitHash"
-        ).textContent = `Commit: ${commitHash}`;
-
-        // Animate workflow steps
-        animateWorkflowSteps();
-
-        // Check deployment status periodically
-        setInterval(checkDeploymentStatus, 30000); // Check every 30 seconds
-      }
-
-      function generateCommitHash() {
-        const chars = "0123456789abcdef";
-        let result = "";
-        for (let i = 0; i < 7; i++) {
-          result += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return result;
-      }
-
-      function animateWorkflowSteps() {
-        const steps = document.querySelectorAll(".step");
-        steps.forEach((step, index) => {
-          setTimeout(() => {
-            step.style.opacity = "0";
-            step.style.transform = "translateY(20px)";
-            step.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
-
-            setTimeout(() => {
-              step.style.opacity = "1";
-              step.style.transform = "translateY(0)";
-            }, 100);
-          }, index * 200);
-        });
-      }
-
-      function checkDeploymentStatus() {
-        // In a real implementation, this would make an API call to GitHub
-        // For demo purposes, we'll simulate a status check
-        const statusBadge = document.getElementById("buildStatus");
-        const statusText = statusBadge.querySelector(".status-text");
-
-        // Simulate different deployment states
-        const states = [
-          { text: "Deployed via GitHub Actions", color: "#22c55e", icon: "🚀" },
-          { text: "Building...", color: "#f59e0b", icon: "⚙️" },
-          { text: "Tests Passing", color: "#22c55e", icon: "✅" },
-        ];
-
-        const currentState = states[Math.floor(Math.random() * states.length)];
-        statusText.textContent = currentState.text;
-        statusBadge.style.borderColor = currentState.color + "50";
-        statusBadge.style.backgroundColor = currentState.color + "20";
-        statusBadge.querySelector(".status-icon").textContent =
-          currentState.icon;
-      }
-
-      // Add workflow step interactions
-      function initWorkflowInteractions() {
-        const steps = document.querySelectorAll(".step");
-
-        steps.forEach((step) => {
-          step.addEventListener("click", () => {
-            // Create detail popup for each step
-            showStepDetails(step.dataset.step);
-          });
-
-          step.addEventListener("mouseenter", () => {
-            step.style.transform = "translateY(-8px) scale(1.02)";
-          });
-
-          step.addEventListener("mouseleave", () => {
-            step.style.transform = "translateY(0) scale(1)";
-          });
-        });
-      }
-
-      function showStepDetails(stepType) {
-        const details = {
-          checkout: {
-            title: "Repository Checkout",
-            description:
-              "GitHub Actions runner clones the repository and checks out the latest commit from the main branch.",
-            commands: ["git clone", "git checkout main"],
-          },
-          build: {
-            title: "Build & Optimize",
-            description:
-              "Assets are processed, minified, and optimized for production deployment.",
-            commands: ["npm install", "npm run build", "optimize assets"],
-          },
-          test: {
-            title: "Quality Checks",
-            description:
-              "Automated tests run including Lighthouse performance audits and accessibility checks.",
-            commands: ["npm test", "lighthouse-ci", "accessibility-check"],
-          },
-          deploy: {
-            title: "Deploy to Production",
-            description:
-              "Built assets are deployed to GitHub Pages with automatic SSL and CDN optimization.",
-            commands: ["deploy to gh-pages", "update DNS", "invalidate cache"],
-          },
-        };
-
-        const detail = details[stepType];
-        if (detail) {
-          // Create and show modal with step details
-          createStepModal(detail);
-        }
-      }
-
-      function createStepModal(detail) {
-        const modal = document.createElement("div");
-        modal.className = "step-modal";
-        modal.innerHTML = `
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3>${detail.title}</h3>
-              <button class="modal-close">×</button>
-            </div>
-            <div class="modal-body">
-              <p>${detail.description}</p>
-              <div class="commands">
-                <h4>Commands executed:</h4>
-                <ul>
-                  ${detail.commands
-                    .map((cmd) => `<li><code>${cmd}</code></li>`)
-                    .join("")}
-                </ul>
-              </div>
-            </div>
-          </div>
-        `;
-
-        // Add modal styles
-        const modalStyles = `
-          .step-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1001;
-            animation: fadeIn 0.3s ease;
-          }
-          .modal-content {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 500px;
-            width: 90%;
-            color: var(--light);
-            animation: slideIn 0.3s ease;
-          }
-          .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-          }
-          .modal-close {
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 2rem;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-          }
-          .modal-close:hover {
-            opacity: 1;
-          }
-          .commands {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-          }
-          .commands h4 {
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-          }
-          .commands ul {
-            list-style: none;
-            padding: 0;
-          }
-          .commands li {
-            margin: 0.5rem 0;
-          }
-          .commands code {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-family: monospace;
-            color: #22c55e;
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          @keyframes slideIn {
-            from { transform: translateY(-50px) scale(0.9); opacity: 0; }
-            to { transform: translateY(0) scale(1); opacity: 1; }
-          }
-        `;
-
-        const styleSheet = document.createElement("style");
-        styleSheet.textContent = modalStyles;
-        document.head.appendChild(styleSheet);
-
-        document.body.appendChild(modal);
-
-        // Close modal functionality
-        modal.querySelector(".modal-close").addEventListener("click", () => {
-          modal.remove();
-          styleSheet.remove();
-        });
-
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            modal.remove();
-            styleSheet.remove();
-          }
-        });
-      }
 
       // Performance optimization
       let ticking = false;
