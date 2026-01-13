@@ -3,742 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Resume</title>
+    <meta
+      name="description"
+      content="Professional Portfolio - DevOps Engineer & Full Stack Developer"
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <title>Portfolio | DevOps Engineer</title>
+
     <link rel="icon" type="image/png" href="devops.png" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --primary: #6366f1;
-        --secondary: #8b5cf6;
-        --accent: #06b6d4;
-        --dark: #0f0f23;
-        --light: #ffffff;
-        --glass: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.2);
-        --shadow: rgba(0, 0, 0, 0.3);
-        --gradient: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--secondary),
-          var(--accent)
-        );
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background: var(--dark);
-        color: var(--light);
-        overflow-x: hidden;
-        min-height: 100vh;
-        position: relative;
-      }
-
-      /* Animated Background */
-      .bg-animation {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        background: var(--gradient);
-        opacity: 0.1;
-      }
-
-      .bg-animation::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        animation: gridMove 20s linear infinite;
-      }
-
-      @keyframes gridMove {
-        0% {
-          transform: translate(0, 0);
-        }
-        100% {
-          transform: translate(10px, 10px);
-        }
-      }
-
-      /* Optimized Particles */
-      .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-        will-change: transform;
-      }
-
-      .particle {
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background: var(--accent);
-        border-radius: 50%;
-        animation: float 20s infinite linear;
-        opacity: 0.4;
-        box-shadow: 0 0 6px var(--accent);
-        will-change: transform;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.6;
-        }
-        90% {
-          opacity: 0.6;
-        }
-        100% {
-          transform: translateY(-100px) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      /* Main Container */
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-        position: relative;
-        z-index: 1;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Header */
-      h1 {
-        font-size: clamp(3rem, 8vw, 6rem);
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 3rem;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        position: relative;
-        animation: titleGlow 3s ease-in-out infinite alternate;
-        letter-spacing: -0.02em;
-      }
-
-      h1::before {
-        content: attr(data-text);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: shimmer 2s infinite;
-      }
-
-      @keyframes titleGlow {
-        0% {
-          filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
-        }
-        100% {
-          filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.8));
-        }
-      }
-
-      @keyframes shimmer {
-        0% {
-          background-position: -200% 0;
-        }
-        100% {
-          background-position: 200% 0;
-        }
-      }
-
-      /* Hardware Acceleration for Animations */
-      .bg-animation,
-      .pdf-container,
-      h1,
-      .particle {
-        will-change: transform;
-        transform: translateZ(0);
-      }
-
-      /* Optimized PDF Viewer Container */
-      .pdf-container {
-        width: 100%;
-        max-width: 900px;
-        position: relative;
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        padding: 2rem;
-        box-shadow: 0 20px 40px var(--shadow),
-          0 0 0 1px rgba(255, 255, 255, 0.05),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        animation: containerFloat 8s ease-in-out infinite;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: transform;
-      }
-
-      .pdf-container:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 40px 80px var(--shadow),
-          0 0 0 1px rgba(255, 255, 255, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      }
-
-      @keyframes containerFloat {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-
-      /* PDF Viewer */
-      .pdf-viewer {
-        width: 100%;
-        height: 70vh;
-        min-height: 600px;
-        border: none;
-        border-radius: 16px;
-        background: var(--light);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .pdf-viewer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        animation: loading 2s infinite;
-        z-index: 1;
-      }
-
-      @keyframes loading {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 100%;
-        }
-      }
-
-      /* Download Link */
-      .download-section {
-        margin-top: 2rem;
-        text-align: center;
-      }
-
-      .download-section p {
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
-        opacity: 0.8;
-      }
-
-      .download-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem 2rem;
-        background: var(--gradient);
-        color: var(--light);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-      }
-
-      .download-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: left 0.5s;
-      }
-
-      .download-btn:hover::before {
-        left: 100%;
-      }
-
-      .download-btn:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
-      }
-
-      .download-btn:active {
-        transform: translateY(-2px) scale(1.02);
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Loading Screen */
-      .loading-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--dark);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-      }
-
-      .loading-screen.hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
-
-      .loader {
-        width: 80px;
-        height: 80px;
-        position: relative;
-      }
-
-      .loader::before,
-      .loader::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        animation: pulse 2s infinite ease-in-out;
-      }
-
-      .loader::before {
-        width: 100%;
-        height: 100%;
-        background: var(--gradient);
-        animation: pulse 2s infinite ease-in-out;
-      }
-
-      .loader::after {
-        width: 60%;
-        height: 60%;
-        top: 20%;
-        left: 20%;
-        background: var(--dark);
-        animation: pulse 2s infinite ease-in-out 0.5s;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(0.8);
-          opacity: 0.5;
-        }
-        50% {
-          transform: scale(1.2);
-          opacity: 1;
-        }
-      }
-
-      /* Scroll Indicator */
-      .scroll-indicator {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        animation: bounce 2s infinite;
-        z-index: 100;
-        opacity: 0.7;
-      }
-
-      .scroll-indicator::before {
-        content: "↓";
-        font-size: 2rem;
-        color: var(--accent);
-        filter: drop-shadow(0 0 10px var(--accent));
-      }
-
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        40% {
-          transform: translateX(-50%) translateY(-10px);
-        }
-        60% {
-          transform: translateX(-50%) translateY(-5px);
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .container {
-          padding: 1rem;
-        }
-
-        .pdf-container {
-          padding: 1rem;
-          margin: 1rem 0;
-        }
-
-        .pdf-viewer {
-          height: 60vh;
-          min-height: 400px;
-        }
-
-        h1 {
-          margin-bottom: 2rem;
-        }
-      }
-
-      /* Accessibility */
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-      <div class="loader"></div>
-    </div>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+      <div class="nav-container">
+        <a href="#home" class="logo">Portfolio</a>
+        <div class="nav-links">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#resume" class="nav-link">Resume</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
 
-    <!-- Animated Background -->
-    <div class="bg-animation"></div>
-
-    <!-- Floating Particles -->
-    <div class="particles" id="particles"></div>
-
-    <!-- Main Content -->
-    <div class="container">
-      <h1 data-text="My Resume">My Resume</h1>
-
-      <div class="pdf-container">
-        <iframe src="resume.pdf" class="pdf-viewer" title="Resume PDF"></iframe>
-
-        <div class="download-section">
-          <p>If the PDF doesn't load properly, you can download it directly:</p>
-          <a href="resume.pdf" download class="download-btn">
-            <span>📄</span>
-            Download Resume
-          </a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-background"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-label">Welcome to my portfolio</p>
+          <h1 class="hero-title">
+            <span class="title-line">DevOps</span>
+            <span class="title-line">Engineer</span>
+          </h1>
+          <p class="hero-description">
+            Building scalable infrastructure and automating workflows for modern
+            applications.
+          </p>
+          <div class="hero-actions">
+            <a href="#resume" class="btn btn-primary">View Resume</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </section>
 
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator"></div>
+    <!-- Resume Section -->
+    <section class="resume-section" id="resume">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Resume</h2>
+          <p class="section-subtitle">
+            Download or view my professional experience
+          </p>
+        </div>
 
-    <script>
-      // Optimized Particle System
-      function createParticles() {
-        const particlesContainer = document.getElementById("particles");
-        const particleCount = 25; // Reduced from 50
+        <div class="resume-viewer">
+          <div class="viewer-wrapper">
+            <iframe
+              src="resume.pdf"
+              class="pdf-frame"
+              title="Resume PDF"
+              loading="lazy"
+            ></iframe>
+          </div>
 
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.animationDelay = Math.random() * 20 + "s";
-          particle.style.animationDuration = Math.random() * 10 + 15 + "s";
-          particlesContainer.appendChild(particle);
-        }
-      }
+          <div class="resume-actions">
+            <a href="resume.pdf" download class="action-btn download-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download PDF
+            </a>
+            <button class="action-btn" id="printBtn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 6 2 18 2 18 9" />
+                <path
+                  d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
+                />
+                <rect x="6" y="14" width="12" height="8" />
+              </svg>
+              Print
+            </button>
+            <button class="action-btn" id="shareBtn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+              </svg>
+              Share
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      // Enhanced Loading Screen
-      function hideLoadingScreen() {
-        const loadingScreen = document.getElementById("loadingScreen");
-        setTimeout(() => {
-          loadingScreen.classList.add("hidden");
-        }, 1500);
-      }
+    <!-- Contact Section (Placeholder for portfolio expansion) -->
+    <section class="contact-section" id="contact">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="section-subtitle">Let's discuss your next project</p>
+        </div>
 
-      // Optimized Mouse Tracking Effect
-      function initMouseTracking() {
-        const container = document.querySelector(".pdf-container");
-        let mouseX = 0;
-        let mouseY = 0;
-        let isHovering = false;
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <h3>Email</h3>
+            <p>mdpkdy@gmail.com.com</p>
+          </div>
 
-        function updateMousePosition(e) {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        }
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </div>
+            <h3>LinkedIn</h3>
+            <p>linkedin.com/in/yourprofile</p>
+          </div>
 
-        function applyTransform() {
-          if (!isHovering) return;
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                />
+              </svg>
+            </div>
+            <h3>GitHub</h3>
+            <p>github.com/yourusername</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          const { innerWidth, innerHeight } = window;
-          const xPos = (mouseX / innerWidth - 0.5) * 10; // Reduced intensity
-          const yPos = (mouseY / innerHeight - 0.5) * 10;
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Portfolio. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
 
-          container.style.transform = `
-            perspective(1000px) 
-            rotateY(${xPos * 0.05}deg) 
-            rotateX(${-yPos * 0.05}deg) 
-            translateZ(0)
-          `;
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
 
-          if (isHovering) {
-            requestAnimationFrame(applyTransform);
-          }
-        }
-
-        container.addEventListener("mouseenter", () => {
-          isHovering = true;
-          applyTransform();
-        });
-
-        container.addEventListener("mouseleave", () => {
-          isHovering = false;
-          container.style.transform =
-            "perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0)";
-        });
-
-        document.addEventListener("mousemove", updateMousePosition, {
-          passive: true,
-        });
-      }
-
-      // Dynamic Background Color Changes
-      function initDynamicBackground() {
-        const colors = [
-          "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)",
-          "linear-gradient(135deg, #ec4899, #f59e0b, #10b981)",
-          "linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b)",
-          "linear-gradient(135deg, #06b6d4, #6366f1, #8b5cf6)",
-        ];
-
-        let currentIndex = 0;
-        const bgAnimation = document.querySelector(".bg-animation");
-
-        setInterval(() => {
-          currentIndex = (currentIndex + 1) % colors.length;
-          bgAnimation.style.background = colors[currentIndex];
-        }, 8000);
-      }
-
-      // Scroll Animations
-      function initScrollAnimations() {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        document
-          .querySelectorAll(".pdf-container, .download-section")
-          .forEach((el) => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(50px)";
-            el.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
-            observer.observe(el);
-          });
-      }
-
-      // Enhanced Download Button
-      function enhanceDownloadButton() {
-        const downloadBtn = document.querySelector(".download-btn");
-
-        downloadBtn.addEventListener("click", (e) => {
-          // Create ripple effect
-          const ripple = document.createElement("span");
-          const rect = downloadBtn.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
-
-          ripple.style.width = ripple.style.height = size + "px";
-          ripple.style.left = x + "px";
-          ripple.style.top = y + "px";
-          ripple.style.position = "absolute";
-          ripple.style.borderRadius = "50%";
-          ripple.style.background = "rgba(255,255,255,0.3)";
-          ripple.style.transform = "scale(0)";
-          ripple.style.animation = "ripple 0.6s linear";
-          ripple.style.pointerEvents = "none";
-
-          downloadBtn.appendChild(ripple);
-
-          setTimeout(() => ripple.remove(), 600);
-        });
-      }
-
-      // Add ripple animation
-      const style = document.createElement("style");
-      style.textContent = `
-        @keyframes ripple {
-          to {
-            transform: scale(4);
-            opacity: 0;
-          }
-        }
-      `;
-      document.head.appendChild(style);
-
-      // Optimized Parallax Scroll Effect
-      function initParallaxScroll() {
-        let ticking = false;
-        const parallax = document.querySelector(".bg-animation");
-
-        function updateParallax() {
-          const scrolled = window.pageYOffset;
-          const speed = scrolled * 0.2; // Reduced multiplier for smoother effect
-          parallax.style.transform = `translate3d(0, ${speed}px, 0)`; // Use translate3d for hardware acceleration
-          ticking = false;
-        }
-
-        window.addEventListener(
-          "scroll",
-          () => {
-            if (!ticking) {
-              requestAnimationFrame(updateParallax);
-              ticking = true;
-            }
-          },
-          { passive: true }
-        );
-      }
-
-      // PDF Load Detection
-      function handlePDFLoad() {
-        const iframe = document.querySelector(".pdf-viewer");
-        const scrollIndicator = document.querySelector(".scroll-indicator");
-
-        iframe.addEventListener("load", () => {
-          iframe.style.opacity = "1";
-          scrollIndicator.style.display = "none";
-
-          // Remove loading animation
-          iframe.style.animation = "none";
-        });
-
-        // Fallback for PDF load detection
-        setTimeout(() => {
-          iframe.style.opacity = "1";
-          scrollIndicator.style.display = "none";
-        }, 3000);
-      }
-
-      // Initialize everything
-      document.addEventListener("DOMContentLoaded", () => {
-        createParticles();
-        hideLoadingScreen();
-        initMouseTracking();
-        initDynamicBackground();
-        initScrollAnimations();
-        enhanceDownloadButton();
-        initParallaxScroll();
-        handlePDFLoad();
-      });
-
-      // Performance optimization
-      let ticking = false;
-
-      function updateMousePosition(e) {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            // Mouse tracking code here
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }
-
-      // Add smooth scroll behavior
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        });
-      });
-
-      // Keyboard navigation enhancement
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          if (document.activeElement.classList.contains("download-btn")) {
-            document.activeElement.click();
-          }
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
