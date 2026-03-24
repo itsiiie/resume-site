@@ -1,102 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name — DevOps & Cloud Engineer</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <title>Shashank Kumar Singh — DevOps Engineer</title>
+  <meta name="description" content="Aspiring DevOps Engineer | AWS · Docker · Kubernetes · CI/CD · Terraform"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Fallback for Clash Display / Cabinet Grotesk (via Fontshare CDN) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=cabinet-grotesk@300,400,500,700,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
 
-  <!-- ========== CURSOR ========== -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
 
-  <!-- ========== NAV ========== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-logo">YN<span class="dot">.</span></div>
-    <ul class="nav-links">
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-brand">SK<span class="accent">.</span></a>
+    <ul class="nav-menu">
       <li><a href="#about">about</a></li>
-      <li><a href="#skills">skills</a></li>
+      <li><a href="#skills">stack</a></li>
       <li><a href="#projects">projects</a></li>
       <li><a href="#experience">experience</a></li>
+      <li><a href="#freelance">freelance</a></li>
       <li><a href="#contact">contact</a></li>
-      <li><a href="resume.html" class="nav-resume-btn">resume</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    <a href="resume.html" class="nav-cta">resume <i class="fas fa-arrow-up-right-from-square"></i></a>
+    <button class="nav-burger" id="burger" aria-label="menu">
+      <span></span><span></span>
+    </button>
   </nav>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero" id="hero">
-    <canvas id="particles-canvas"></canvas>
-    <div class="hero-content">
-      <p class="hero-greeting reveal-up">Hey there, I'm</p>
-      <h1 class="hero-name reveal-up delay-1">Your Name<span class="cursor-blink">_</span></h1>
-      <div class="hero-roles reveal-up delay-2">
-        <span class="role-prefix">I build &nbsp;</span>
-        <span class="typed-text" id="typed"></span>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">about</a></li>
+      <li><a href="#skills" class="mobile-link">stack</a></li>
+      <li><a href="#projects" class="mobile-link">projects</a></li>
+      <li><a href="#experience" class="mobile-link">experience</a></li>
+      <li><a href="#freelance" class="mobile-link">freelance</a></li>
+      <li><a href="#contact" class="mobile-link">contact</a></li>
+      <li><a href="resume.html" class="mobile-link accent">resume ↗</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <canvas id="canvas"></canvas>
+
+    <div class="hero-inner">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Available for internships & freelance
       </div>
-      <p class="hero-desc reveal-up delay-3">
-        B.Tech CSE student obsessed with DevOps, cloud infrastructure, and shipping things that actually work in production.
+
+      <h1 class="hero-h1 reveal delay-1">
+        <span class="line">Shashank</span>
+        <span class="line">Kumar<em class="italic-accent"> Singh</em></span>
+      </h1>
+
+      <div class="hero-role reveal delay-2">
+        <span class="role-static">I engineer </span>
+        <span class="role-typed" id="typed"></span>
+        <span class="role-cursor">|</span>
+      </div>
+
+      <p class="hero-sub reveal delay-3">
+        DevOps & Cloud Engineer · UEM Jaipur '26<br/>
+        Building pipelines, breaking things, automating everything.
       </p>
-      <div class="hero-cta reveal-up delay-4">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="resume.html" class="btn btn-ghost">Resume <i class="fa-solid fa-arrow-right"></i></a>
+
+      <div class="hero-actions reveal delay-4">
+        <a href="#projects" class="btn-fill">View Projects</a>
+        <a href="https://github.com/itsiiie" target="_blank" class="btn-outline">
+          <i class="fab fa-github"></i> GitHub
+        </a>
       </div>
-      <div class="hero-socials reveal-up delay-5">
-        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+
+      <div class="hero-links reveal delay-5">
+        <a href="https://github.com/itsiiie" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/itsiiie/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:mdpkdy@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
     </div>
-    <div class="scroll-indicator">
+
+    <div class="hero-scroll">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
       <span>scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ========== ABOUT ========== -->
-  <section class="about section-pad" id="about">
-    <div class="container">
-      <div class="section-tag reveal-fade">about me</div>
+  <!-- ============ ABOUT ============ -->
+  <section class="about section" id="about">
+    <div class="wrap">
+      <span class="eyebrow reveal">about me</span>
       <div class="about-grid">
-        <div class="about-text reveal-left">
-          <h2>Building the infra <span class="neon">behind the code.</span></h2>
-          <p>
-            I'm a Computer Science student at [Your College], passionate about the intersection of software development and cloud infrastructure. I don't just write code — I think about how it gets deployed, scaled, and monitored in production.
-          </p>
-          <p>
-            Currently diving deep into AWS, Docker, Kubernetes, and CI/CD pipelines. I believe in automating everything that can be automated and building systems that recover gracefully when things go wrong.
-          </p>
-          <div class="about-stats">
-            <div class="stat"><span class="stat-num neon">10+</span><span class="stat-label">Projects Shipped</span></div>
-            <div class="stat"><span class="stat-num neon">5+</span><span class="stat-label">AWS Services Used</span></div>
-            <div class="stat"><span class="stat-num neon">∞</span><span class="stat-label">Bugs Debugged</span></div>
+        <div class="about-left reveal-left">
+          <h2 class="section-h2">DevSecOps-minded<br/><span class="accent">cloud builder.</span></h2>
+          <p>I'm a final-year CSE student at UEM Jaipur, obsessed with the entire lifecycle of shipping software — from writing infrastructure as code to securing pipelines to monitoring what runs in production.</p>
+          <p>Not just deploying apps. Building systems that are <em>observable, secure, and repeatable</em>. I've done it in real internships, real projects, and real client work.</p>
+          <div class="about-numbers">
+            <div class="num-card">
+              <strong class="accent">3+</strong>
+              <span>Production<br/>Projects</span>
+            </div>
+            <div class="num-card">
+              <strong class="accent">8+</strong>
+              <span>AWS Services<br/>Used</span>
+            </div>
+            <div class="num-card">
+              <strong class="accent">2+</strong>
+              <span>Freelance<br/>Clients</span>
+            </div>
+            <div class="num-card">
+              <strong class="accent">7.5</strong>
+              <span>CGPA<br/>B.Tech CSE</span>
+            </div>
           </div>
         </div>
-        <div class="about-visual reveal-right">
-          <div class="terminal-card">
-            <div class="terminal-header">
-              <span class="t-dot red"></span>
-              <span class="t-dot yellow"></span>
-              <span class="t-dot green"></span>
-              <span class="t-title">whoami.sh</span>
+        <div class="about-right reveal-right">
+          <div class="terminal">
+            <div class="term-bar">
+              <span class="dot r"></span>
+              <span class="dot y"></span>
+              <span class="dot g"></span>
+              <span class="term-title">shashank@devops:~</span>
             </div>
-            <div class="terminal-body">
-              <p><span class="t-prompt">$</span> whoami</p>
-              <p class="t-output neon">your-name</p>
-              <p><span class="t-prompt">$</span> cat interests.txt</p>
-              <p class="t-output">DevOps, Cloud, Backend Dev</p>
-              <p class="t-output">CI/CD, Docker, Kubernetes</p>
-              <p class="t-output">AWS, Linux, Open Source</p>
-              <p><span class="t-prompt">$</span> echo $STATUS</p>
-              <p class="t-output neon">open to internships ✓</p>
-              <p><span class="t-prompt">$</span> <span class="t-cursor">█</span></p>
+            <div class="term-body">
+              <div class="term-line"><span class="p">❯</span> <span class="cmd">whoami</span></div>
+              <div class="term-line out accent">shashank-kumar-singh</div>
+              <div class="term-line"><span class="p">❯</span> <span class="cmd">cat role.txt</span></div>
+              <div class="term-line out">DevOps Engineer | Cloud Architect</div>
+              <div class="term-line out">DevSecOps Practitioner</div>
+              <div class="term-line"><span class="p">❯</span> <span class="cmd">cat stack.sh</span></div>
+              <div class="term-line out accent">AWS · Docker · K8s · Terraform</div>
+              <div class="term-line out">GitHub Actions · ArgoCD · Helm</div>
+              <div class="term-line out">Prometheus · Grafana · Trivy</div>
+              <div class="term-line"><span class="p">❯</span> <span class="cmd">echo $LOCATION</span></div>
+              <div class="term-line out">Jaipur, India 🇮🇳</div>
+              <div class="term-line"><span class="p">❯</span> <span class="cmd">echo $STATUS</span></div>
+              <div class="term-line out accent">open_to_opportunities=true ✓</div>
+              <div class="term-line"><span class="p blink">❯</span> <span class="term-cursor">█</span></div>
             </div>
           </div>
         </div>
@@ -104,54 +161,73 @@
     </div>
   </section>
 
-  <!-- ========== SKILLS ========== -->
-  <section class="skills section-pad" id="skills">
-    <div class="container">
-      <div class="section-tag reveal-fade">skills</div>
-      <h2 class="section-title reveal-up">My Tech Stack</h2>
+  <!-- ============ SKILLS ============ -->
+  <section class="skills section alt" id="skills">
+    <div class="wrap">
+      <span class="eyebrow reveal">tech stack</span>
+      <h2 class="section-h2 reveal">What I Work With</h2>
       <div class="skills-grid">
 
-        <div class="skill-category reveal-up delay-1">
-          <h3><i class="fas fa-code"></i> Languages</h3>
-          <div class="skill-tags">
-            <span class="tag">Python</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Java</span>
-            <span class="tag">Bash</span>
-            <span class="tag">SQL</span>
+        <div class="skill-block reveal delay-1">
+          <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Cloud · AWS</h3>
+          <div class="pills">
+            <span class="pill hot">EC2</span><span class="pill hot">EKS</span><span class="pill hot">ECR</span>
+            <span class="pill hot">S3</span><span class="pill hot">RDS</span><span class="pill hot">Lambda</span>
+            <span class="pill">IAM</span><span class="pill">CloudWatch</span><span class="pill">Secrets Manager</span>
+            <span class="pill">Cost Explorer</span>
           </div>
         </div>
 
-        <div class="skill-category reveal-up delay-2">
-          <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-          <div class="skill-tags">
-            <span class="tag neon-tag">AWS</span>
-            <span class="tag neon-tag">Docker</span>
-            <span class="tag neon-tag">Kubernetes</span>
-            <span class="tag neon-tag">GitHub Actions</span>
-            <span class="tag neon-tag">Terraform</span>
+        <div class="skill-block reveal delay-2">
+          <div class="skill-icon"><i class="fas fa-infinity"></i></div>
+          <h3>DevOps · CI/CD</h3>
+          <div class="pills">
+            <span class="pill hot">GitHub Actions</span><span class="pill hot">Jenkins</span>
+            <span class="pill hot">ArgoCD</span><span class="pill hot">Helm</span>
+            <span class="pill">GitOps</span><span class="pill">Docker</span>
+            <span class="pill">Kubernetes</span>
           </div>
         </div>
 
-        <div class="skill-category reveal-up delay-3">
-          <h3><i class="fas fa-server"></i> Backend</h3>
-          <div class="skill-tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Redis</span>
+        <div class="skill-block reveal delay-3">
+          <div class="skill-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>DevSecOps</h3>
+          <div class="pills">
+            <span class="pill hot">Trivy</span><span class="pill hot">Snyk</span>
+            <span class="pill hot">SonarQube</span><span class="pill hot">Checkov</span>
+            <span class="pill">tfsec</span><span class="pill">OIDC Auth</span>
+            <span class="pill">Shift-Left Security</span>
           </div>
         </div>
 
-        <div class="skill-category reveal-up delay-4">
-          <h3><i class="fas fa-tools"></i> Tools</h3>
-          <div class="skill-tags">
-            <span class="tag">Git</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Nginx</span>
-            <span class="tag">Prometheus</span>
-            <span class="tag">Grafana</span>
+        <div class="skill-block reveal delay-4">
+          <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>IaC · Infra</h3>
+          <div class="pills">
+            <span class="pill hot">Terraform</span><span class="pill hot">Ansible</span>
+            <span class="pill">Nginx</span><span class="pill">Linux</span>
+            <span class="pill">Bash</span>
+          </div>
+        </div>
+
+        <div class="skill-block reveal delay-1">
+          <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Observability</h3>
+          <div class="pills">
+            <span class="pill hot">Prometheus</span><span class="pill hot">Grafana</span>
+            <span class="pill">Alertmanager</span><span class="pill">CloudWatch</span>
+            <span class="pill">MTTD Reduction</span>
+          </div>
+        </div>
+
+        <div class="skill-block reveal delay-2">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <h3>Backend · Code</h3>
+          <div class="pills">
+            <span class="pill hot">Python</span><span class="pill hot">Flask</span>
+            <span class="pill hot">Django</span><span class="pill hot">boto3</span>
+            <span class="pill">REST APIs</span><span class="pill">SQL</span><span class="pill">Streamlit</span>
           </div>
         </div>
 
@@ -159,115 +235,166 @@
     </div>
   </section>
 
-  <!-- ========== PROJECTS ========== -->
-  <section class="projects section-pad" id="projects">
-    <div class="container">
-      <div class="section-tag reveal-fade">projects</div>
-      <h2 class="section-title reveal-up">Things I've Built</h2>
+  <!-- ============ PROJECTS ============ -->
+  <section class="projects section" id="projects">
+    <div class="wrap">
+      <span class="eyebrow reveal">projects</span>
+      <h2 class="section-h2 reveal">Things I've Shipped</h2>
 
-      <div class="projects-grid" id="projects-grid">
+      <div class="projects-grid">
 
-        <!-- ===== PROJECT CARD — COPY THIS BLOCK TO ADD A NEW PROJECT ===== -->
-        <div class="project-card reveal-up delay-1">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-rocket"></i></div>
-            <div class="project-links">
-              <a href="https://github.com/yourusername/project" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-              <a href="https://yourproject.live" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+        <!-- PROJECT 1 -->
+        <div class="proj-card featured reveal delay-1">
+          <div class="proj-top">
+            <div class="proj-num">01</div>
+            <div class="proj-ext">
+              <a href="https://github.com/itsiiie" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" title="Live"><i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <h3 class="project-title">CI/CD Pipeline on AWS</h3>
-          <p class="project-desc">
-            Automated deployment pipeline using GitHub Actions, Docker, and AWS ECS. Reduced deploy time from 20 minutes to under 3 minutes with zero-downtime rolling updates.
-          </p>
-          <div class="project-tags">
-            <span>AWS ECS</span><span>Docker</span><span>GitHub Actions</span><span>Terraform</span>
-          </div>
-        </div>
-        <!-- ===== END PROJECT CARD ===== -->
-
-        <div class="project-card reveal-up delay-2">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <h3 class="project-title">Kubernetes Monitoring Stack</h3>
-          <p class="project-desc">
-            Set up a full observability stack with Prometheus, Grafana, and Alertmanager on a local Kubernetes cluster. Includes custom dashboards and alerting rules.
-          </p>
-          <div class="project-tags">
-            <span>Kubernetes</span><span>Prometheus</span><span>Grafana</span><span>Helm</span>
+          <div class="proj-label">Featured · DevSecOps</div>
+          <h3>CloudCart — EKS Pipeline</h3>
+          <p>Full GitOps pipeline deploying containerized microservices to AWS EKS using ArgoCD. Shift-Left security with Checkov & tfsec scanning IaC templates at the PR stage. Reduced deployment time by 30%.</p>
+          <ul class="proj-bullets">
+            <li>Automated infra provisioning with Terraform — dev/prod parity guaranteed</li>
+            <li>Deployed & managed 3+ microservices on EKS</li>
+            <li>ArgoCD GitOps for declarative, auditable deploys</li>
+            <li>IaC security scanning on every pull request</li>
+          </ul>
+          <div class="proj-stack">
+            <span>Terraform</span><span>AWS EKS</span><span>ArgoCD</span><span>Helm</span><span>GitHub Actions</span><span>Checkov</span><span>tfsec</span>
           </div>
         </div>
 
-        <div class="project-card reveal-up delay-3">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-database"></i></div>
-            <div class="project-links">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        <!-- PROJECT 2 -->
+        <div class="proj-card reveal delay-2">
+          <div class="proj-top">
+            <div class="proj-num">02</div>
+            <div class="proj-ext">
+              <a href="https://github.com/itsiiie" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
           </div>
-          <h3 class="project-title">REST API with Auth</h3>
-          <p class="project-desc">
-            Production-ready REST API built with Node.js and Express. Features JWT auth, rate limiting, PostgreSQL, Redis caching, and Dockerized deployment.
-          </p>
-          <div class="project-tags">
-            <span>Node.js</span><span>PostgreSQL</span><span>Docker</span><span>Redis</span>
+          <div class="proj-label">Tooling · AWS</div>
+          <h3>AWS Free Tier Usage Monitor</h3>
+          <p>Serverless monitoring tool using Boto3 to track real-time AWS cost & usage. Automated alerts when any service hits 80% of Free Tier limits — preventing surprise billing.</p>
+          <ul class="proj-bullets">
+            <li>Tracks EC2, S3, RDS, Lambda usage in real-time</li>
+            <li>GitHub Actions cron for automated reporting</li>
+            <li>Streamlit dashboard for visual infra health tracking</li>
+          </ul>
+          <div class="proj-stack">
+            <span>Python</span><span>boto3</span><span>AWS Cost Explorer</span><span>GitHub Actions</span><span>Streamlit</span>
           </div>
         </div>
+
+        <!-- PROJECT 3 -->
+        <div class="proj-card reveal delay-3">
+          <div class="proj-top">
+            <div class="proj-num">03</div>
+            <div class="proj-ext">
+              <a href="https://github.com/itsiiie" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="proj-label">CLI Tool · Python</div>
+          <h3>aws-ops CLI</h3>
+          <p>Python-based CLI tool to manage cross-region EC2 lifecycles. Start, stop, and check status of instances across regions — without touching the AWS console.</p>
+          <ul class="proj-bullets">
+            <li>Cross-region EC2 lifecycle management</li>
+            <li>Reduced time spent on manual console navigation</li>
+            <li>Clean CLI interface with boto3 under the hood</li>
+          </ul>
+          <div class="proj-stack">
+            <span>Python</span><span>boto3</span><span>AWS EC2</span><span>CLI</span>
+          </div>
+        </div>
+
+        <!-- ADD NEW PROJECT — copy this card block -->
+        <!--
+        <div class="proj-card reveal">
+          <div class="proj-top">
+            <div class="proj-num">04</div>
+            <div class="proj-ext">
+              <a href="GITHUB_URL" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="LIVE_URL" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="proj-label">Category</div>
+          <h3>Project Name</h3>
+          <p>What it does. What problem it solves.</p>
+          <ul class="proj-bullets">
+            <li>Key achievement or feature</li>
+          </ul>
+          <div class="proj-stack">
+            <span>Tech1</span><span>Tech2</span>
+          </div>
+        </div>
+        -->
 
       </div>
 
-      <div class="projects-more reveal-fade">
-        <a href="https://github.com/yourusername" target="_blank" class="btn btn-ghost">
+      <div class="projects-footer reveal">
+        <a href="https://github.com/itsiiie" target="_blank" class="btn-outline">
           More on GitHub <i class="fab fa-github"></i>
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- ========== EXPERIENCE / TIMELINE ========== -->
-  <section class="experience section-pad" id="experience">
-    <div class="container">
-      <div class="section-tag reveal-fade">journey</div>
-      <h2 class="section-title reveal-up">Experience & Education</h2>
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="experience section alt" id="experience">
+    <div class="wrap">
+      <span class="eyebrow reveal">experience</span>
+      <h2 class="section-h2 reveal">Journey So Far</h2>
+
       <div class="timeline">
 
-        <div class="timeline-item reveal-left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">2024 — Present</span>
-            <h3>DevOps Intern</h3>
-            <p class="timeline-company">Company Name · Remote</p>
-            <p>Worked on automating deployments using GitHub Actions and AWS. Containerized legacy applications with Docker and helped migrate infra to ECS.</p>
-            <div class="timeline-tags"><span>AWS</span><span>Docker</span><span>CI/CD</span></div>
+        <div class="tl-item reveal-left">
+          <div class="tl-side">
+            <div class="tl-dot active"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tl-date">Oct 2025 — Dec 2025</span>
+              <span class="tl-badge">Internship</span>
+            </div>
+            <h3>DevOps Engineer Intern</h3>
+            <p class="tl-company">WebArclight · Remote</p>
+            <ul class="tl-points">
+              <li>Engineered CI/CD pipelines using <strong>GitHub Actions & Jenkins</strong>, cutting manual deployment overhead significantly</li>
+              <li>Integrated <strong>SonarQube, Snyk & Trivy</strong> into pipelines — <strong>40% faster</strong> vulnerability identification before production</li>
+              <li>Implemented <strong>OIDC-based AWS authentication</strong>, eliminating long-lived IAM credentials risk</li>
+              <li>Migrated hardcoded secrets to <strong>AWS Secrets Manager</strong> for centralized credential rotation</li>
+              <li>Built <strong>Grafana dashboards & Prometheus exporters</strong> for app health monitoring</li>
+            </ul>
+            <div class="tl-tags">
+              <span>GitHub Actions</span><span>Jenkins</span><span>SonarQube</span><span>Trivy</span><span>Snyk</span><span>OIDC</span><span>AWS Secrets Manager</span><span>Grafana</span><span>Prometheus</span>
+            </div>
           </div>
         </div>
 
-        <div class="timeline-item reveal-right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">2022 — 2026</span>
-            <h3>B.Tech Computer Science</h3>
-            <p class="timeline-company">Your College Name</p>
-            <p>Focused on cloud computing, distributed systems, and software engineering. Active in the coding club and open source community.</p>
-            <div class="timeline-tags"><span>CSE</span><span>Cloud Computing</span><span>DSA</span></div>
+        <div class="tl-item reveal-right">
+          <div class="tl-side">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
           </div>
-        </div>
-
-        <div class="timeline-item reveal-left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <span class="timeline-date">2023</span>
-            <h3>AWS Cloud Practitioner</h3>
-            <p class="timeline-company">Amazon Web Services · Certification</p>
-            <p>Cleared foundational AWS certification covering core services, security, pricing, and architecture best practices.</p>
-            <div class="timeline-tags"><span>AWS</span><span>Cloud</span></div>
+          <div class="tl-card">
+            <div class="tl-meta">
+              <span class="tl-date">Aug 2022 — Jun 2026</span>
+              <span class="tl-badge edu">Education</span>
+            </div>
+            <h3>B.Tech — Computer Science & Engineering</h3>
+            <p class="tl-company">University of Engineering & Management, Jaipur</p>
+            <ul class="tl-points">
+              <li>CGPA: <strong>7.5 / 10</strong></li>
+              <li>Specializing in Cloud Computing, DevOps, and Distributed Systems</li>
+              <li>Built 3 production-grade projects alongside academics</li>
+            </ul>
+            <div class="tl-tags">
+              <span>CSE</span><span>Cloud Computing</span><span>Distributed Systems</span><span>OS</span><span>CN</span>
+            </div>
           </div>
         </div>
 
@@ -275,46 +402,165 @@
     </div>
   </section>
 
-  <!-- ========== GITHUB STATS ========== -->
-  <section class="github-stats section-pad" id="stats">
-    <div class="container">
-      <div class="section-tag reveal-fade">open source</div>
-      <h2 class="section-title reveal-up">GitHub Activity</h2>
-      <div class="stats-grid reveal-up delay-1">
-        <img src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=transparent&hide_border=true&title_color=00f5ff&text_color=ffffff&icon_color=00f5ff" alt="GitHub Stats" class="github-stat-img"/>
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=transparent&hide_border=true&title_color=00f5ff&text_color=ffffff" alt="Top Languages" class="github-stat-img"/>
+  <!-- ============ OPEN SOURCE ============ -->
+  <section class="oss section" id="opensource">
+    <div class="wrap">
+      <span class="eyebrow reveal">open source</span>
+      <h2 class="section-h2 reveal">GitHub Activity</h2>
+      <p class="section-sub reveal">Building in public. Everything I learn, I ship.</p>
+
+      <div class="oss-stats reveal delay-1">
+        <img
+          src="https://github-readme-stats.vercel.app/api?username=itsiiie&show_icons=true&theme=transparent&hide_border=true&title_color=00e5ff&text_color=cccccc&icon_color=00e5ff&bg_color=00000000"
+          alt="Shashank's GitHub Stats"
+          class="oss-img"
+          loading="lazy"
+        />
+        <img
+          src="https://github-readme-stats.vercel.app/api/top-langs/?username=itsiiie&layout=compact&theme=transparent&hide_border=true&title_color=00e5ff&text_color=cccccc&bg_color=00000000"
+          alt="Top Languages"
+          class="oss-img"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="oss-streak reveal delay-2">
+        <img
+          src="https://streak-stats.demolab.com?user=itsiiie&theme=dark&hide_border=true&stroke=00e5ff&ring=00e5ff&fire=ff6b35&currStreakLabel=00e5ff&background=00000000"
+          alt="GitHub Streak"
+          class="oss-streak-img"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="oss-cta reveal delay-3">
+        <a href="https://github.com/itsiiie" target="_blank" class="btn-fill">
+          <i class="fab fa-github"></i> github.com/itsiiie
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTACT ========== -->
-  <section class="contact section-pad" id="contact">
-    <div class="container">
-      <div class="section-tag reveal-fade">contact</div>
-      <h2 class="section-title reveal-up">Let's Connect</h2>
-      <p class="contact-sub reveal-up delay-1">Open to internships, collaborations, or just a good tech conversation.</p>
-      <div class="contact-links reveal-up delay-2">
-        <a href="mailto:your@email.com" class="contact-card">
+  <!-- ============ FREELANCE ============ -->
+  <section class="freelance section alt" id="freelance">
+    <div class="wrap">
+      <span class="eyebrow reveal">freelance</span>
+      <h2 class="section-h2 reveal">Available for Hire</h2>
+      <p class="section-sub reveal">Beyond academics and internships — I take on client projects for cloud infra, DevOps automation, and backend work.</p>
+
+      <div class="freelance-grid">
+
+        <div class="fl-card reveal delay-1">
+          <div class="fl-icon"><i class="fas fa-rocket"></i></div>
+          <h3>CI/CD Pipeline Setup</h3>
+          <p>Design and implement automated deployment pipelines using GitHub Actions or Jenkins. From code commit to production — fully automated.</p>
+          <ul>
+            <li>GitHub Actions / Jenkins workflows</li>
+            <li>Docker build, test, push pipelines</li>
+            <li>Deploy to AWS ECS / EKS</li>
+            <li>Rollback and health check automation</li>
+          </ul>
+        </div>
+
+        <div class="fl-card reveal delay-2">
+          <div class="fl-icon"><i class="fas fa-cloud"></i></div>
+          <h3>AWS Infrastructure</h3>
+          <p>Provision and manage cloud infrastructure on AWS using Terraform. Scalable, secure, and cost-optimized setups.</p>
+          <ul>
+            <li>EC2, ECS, EKS, S3, RDS setup</li>
+            <li>Terraform IaC with state management</li>
+            <li>IAM roles, OIDC, Secrets Manager</li>
+            <li>Cost optimization & monitoring</li>
+          </ul>
+        </div>
+
+        <div class="fl-card reveal delay-3">
+          <div class="fl-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>DevSecOps Integration</h3>
+          <p>Embed security into your existing pipelines. Shift-left security so vulnerabilities are caught before they ever reach production.</p>
+          <ul>
+            <li>Trivy, Snyk, SonarQube integration</li>
+            <li>IaC scanning with Checkov / tfsec</li>
+            <li>OIDC auth, Secrets rotation</li>
+            <li>Security reports & remediation</li>
+          </ul>
+        </div>
+
+        <div class="fl-card reveal delay-4">
+          <div class="fl-icon"><i class="fas fa-chart-area"></i></div>
+          <h3>Monitoring & Observability</h3>
+          <p>Build dashboards and alerting so you actually know what's happening in your infrastructure before your users do.</p>
+          <ul>
+            <li>Prometheus + Grafana stack setup</li>
+            <li>Custom dashboards & alerts</li>
+            <li>AWS CloudWatch integration</li>
+            <li>MTTD/MTTR optimization</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="freelance-cta reveal">
+        <p>Have a project in mind? Let's talk.</p>
+        <a href="mailto:mdpkdy@gmail.com" class="btn-fill">
+          <i class="fas fa-envelope"></i> mdpkdy@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact section" id="contact">
+    <div class="wrap">
+      <span class="eyebrow reveal">contact</span>
+      <h2 class="section-h2 reveal">Let's Build Something</h2>
+      <p class="section-sub reveal">Open to internships, full-time opportunities, freelance, or just a good DevOps conversation.</p>
+
+      <div class="contact-cards reveal delay-1">
+        <a href="mailto:mdpkdy@gmail.com" class="contact-card">
           <i class="fas fa-envelope"></i>
-          <span>your@email.com</span>
+          <div>
+            <strong>Email</strong>
+            <span>mdpkdy@gmail.com</span>
+          </div>
+          <i class="fas fa-arrow-right arrow"></i>
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-card">
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn</span>
+        <a href="https://www.linkedin.com/in/itsiiie/" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin-in"></i>
+          <div>
+            <strong>LinkedIn</strong>
+            <span>linkedin.com/in/itsiiie</span>
+          </div>
+          <i class="fas fa-arrow-right arrow"></i>
         </a>
-        <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+        <a href="https://github.com/itsiiie" target="_blank" class="contact-card">
           <i class="fab fa-github"></i>
-          <span>GitHub</span>
+          <div>
+            <strong>GitHub</strong>
+            <span>github.com/itsiiie</span>
+          </div>
+          <i class="fas fa-arrow-right arrow"></i>
+        </a>
+        <a href="tel:+916200408819" class="contact-card">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Phone</strong>
+            <span>+91 6200408819</span>
+          </div>
+          <i class="fas fa-arrow-right arrow"></i>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container">
-      <p>Designed & built by <span class="neon">Your Name</span></p>
-      <p class="footer-sub">Deployed via <span class="neon">GitHub Actions</span> · Hosted on <span class="neon">GitHub Pages</span></p>
+    <div class="wrap footer-inner">
+      <span class="footer-brand">SK<span class="accent">.</span></span>
+      <p>Designed & built by <span class="accent">Shashank Kumar Singh</span></p>
+      <p class="footer-meta">
+        Deployed via <span class="accent">GitHub Actions</span> · Hosted on <span class="accent">GitHub Pages</span>
+      </p>
     </div>
   </footer>
 

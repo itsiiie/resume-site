@@ -3,170 +3,215 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resume — Your Name</title>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <title>Resume — Shashank Kumar Singh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=cabinet-grotesk@300,400,500,700,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
 
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <div class="noise"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- NAV -->
-  <nav class="navbar" id="navbar">
-    <a href="index.html" class="nav-logo">YN<span class="dot">.</span></a>
-    <ul class="nav-links">
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-brand">SK<span class="accent">.</span></a>
+    <ul class="nav-menu">
       <li><a href="index.html#about">about</a></li>
       <li><a href="index.html#projects">projects</a></li>
+      <li><a href="index.html#freelance">freelance</a></li>
       <li><a href="index.html#contact">contact</a></li>
-      <li><a href="resume.html" class="nav-resume-btn active">resume</a></li>
     </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    <a href="assets/Shashank_Resume.pdf" download class="nav-cta">
+      <i class="fas fa-download"></i> download
+    </a>
+    <button class="nav-burger" id="burger" aria-label="menu">
+      <span></span><span></span>
+    </button>
   </nav>
 
-  <!-- RESUME PAGE HEADER -->
-  <div class="resume-page-hero">
-    <div class="container">
-      <p class="hero-greeting reveal-up">my</p>
-      <h1 class="hero-name reveal-up delay-1">Resume<span class="cursor-blink">_</span></h1>
-      <a href="assets/images/resume.pdf" download class="btn btn-primary reveal-up delay-2">
-        <i class="fas fa-download"></i> Download PDF
-      </a>
+  <!-- RESUME HERO -->
+  <div class="resume-hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">my resume</span>
+      <h1 class="hero-h1 reveal delay-1">Shashank<br/><span class="accent">Kumar Singh</span></h1>
+      <div class="resume-hero-actions reveal delay-2">
+        <a href="assets/Shashank_Resume.pdf" download class="btn-fill">
+          <i class="fas fa-download"></i> Download PDF
+        </a>
+        <a href="index.html" class="btn-outline">
+          <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="resume-wrapper">
-    <div class="container">
+  <div class="resume-page">
+    <div class="wrap">
 
-      <!-- ===== HTML RESUME ===== -->
-      <div class="resume-html reveal-up">
+      <!-- HTML RESUME -->
+      <div class="resume-doc reveal">
 
-        <div class="resume-header-card">
-          <h2>Your Full Name</h2>
-          <p class="resume-role">DevOps & Cloud Engineer · B.Tech CSE</p>
-          <div class="resume-contacts">
-            <span><i class="fas fa-envelope"></i> your@email.com</span>
-            <span><i class="fab fa-github"></i> github.com/yourusername</span>
-            <span><i class="fab fa-linkedin"></i> linkedin.com/in/yourusername</span>
-            <span><i class="fas fa-map-marker-alt"></i> Your City, India</span>
+        <!-- HEADER -->
+        <div class="rdoc-header">
+          <div>
+            <h2>Shashank Kumar Singh</h2>
+            <p class="rdoc-tagline">DevOps & Cloud Engineer · B.Tech CSE · UEM Jaipur '26</p>
+          </div>
+          <div class="rdoc-contacts">
+            <a href="mailto:mdpkdy@gmail.com"><i class="fas fa-envelope"></i> mdpkdy@gmail.com</a>
+            <a href="tel:+916200408819"><i class="fas fa-phone"></i> +91 6200408819</a>
+            <a href="https://github.com/itsiiie" target="_blank"><i class="fab fa-github"></i> github.com/itsiiie</a>
+            <a href="https://www.linkedin.com/in/itsiiie/" target="_blank"><i class="fab fa-linkedin-in"></i> linkedin.com/in/itsiiie</a>
+            <span><i class="fas fa-map-marker-alt"></i> Jaipur, India</span>
           </div>
         </div>
 
-        <div class="resume-section">
-          <h3 class="resume-section-title"><span class="neon">//</span> Summary</h3>
-          <p>B.Tech Computer Science student specializing in DevOps, cloud infrastructure, and backend development. Experienced with AWS, Docker, Kubernetes, and CI/CD pipeline automation. Passionate about building reliable, scalable systems and automating everything possible.</p>
+        <!-- SUMMARY -->
+        <div class="rdoc-section">
+          <h3 class="rdoc-title"><span class="accent">//</span> Professional Summary</h3>
+          <p class="rdoc-summary">Aspiring DevOps Engineer with practical experience in designing CI/CD pipelines, automating cloud infrastructure, and deploying applications on AWS. Proficient in Docker, Kubernetes, Terraform, and GitHub Actions, with exposure to DevSecOps practices including security scanning and monitoring. Strong problem-solver focused on building scalable and efficient systems.</p>
         </div>
 
-        <div class="resume-section">
-          <h3 class="resume-section-title"><span class="neon">//</span> Experience</h3>
-
-          <div class="resume-item">
-            <div class="resume-item-header">
+        <!-- EXPERIENCE -->
+        <div class="rdoc-section">
+          <h3 class="rdoc-title"><span class="accent">//</span> Experience</h3>
+          <div class="rdoc-item">
+            <div class="rdoc-item-head">
               <div>
-                <h4>DevOps Intern</h4>
-                <p class="resume-company">Company Name · Remote</p>
+                <h4>DevOps Engineer Intern</h4>
+                <p class="rdoc-company">WebArclight · Remote</p>
               </div>
-              <span class="resume-date">Jun 2024 — Present</span>
+              <span class="rdoc-date">Oct 2025 – Dec 2025</span>
             </div>
-            <ul>
-              <li>Automated deployment pipeline using GitHub Actions + AWS ECS, reducing deploy time by 85%</li>
-              <li>Dockerized 3 legacy applications, enabling consistent dev/staging/prod environments</li>
-              <li>Set up Prometheus + Grafana monitoring for production services</li>
+            <ul class="rdoc-list">
+              <li><strong>Automated Workflows:</strong> Engineered CI/CD pipelines using GitHub Actions and Jenkins, reducing manual deployment overhead and ensuring consistent build/test cycles.</li>
+              <li><strong>Security Hardening:</strong> Integrated SonarQube, Snyk, and Trivy into CI/CD pipelines — 40% faster identification of vulnerabilities before production.</li>
+              <li><strong>Identity Management:</strong> Implemented OIDC-based authentication for AWS, eliminating risks of long-lived IAM credentials.</li>
+              <li><strong>Secret Management:</strong> Migrated hardcoded configurations to AWS Secrets Manager for compliance and centralized credential rotation.</li>
+              <li><strong>Observability:</strong> Built Grafana dashboards and Prometheus exporters to monitor application health, reducing MTTD for system alerts.</li>
+            </ul>
+            <div class="rdoc-tags">
+              <span>GitHub Actions</span><span>Jenkins</span><span>SonarQube</span><span>Snyk</span><span>Trivy</span><span>AWS</span><span>OIDC</span><span>Secrets Manager</span><span>Prometheus</span><span>Grafana</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="rdoc-section">
+          <h3 class="rdoc-title"><span class="accent">//</span> Projects</h3>
+
+          <div class="rdoc-item">
+            <div class="rdoc-item-head">
+              <div>
+                <h4>CloudCart — DevSecOps EKS Pipeline</h4>
+                <p class="rdoc-company">Terraform · GitHub Actions · ArgoCD · Helm · AWS EKS</p>
+              </div>
+              <a href="https://github.com/itsiiie" target="_blank" class="rdoc-link accent">
+                <i class="fab fa-github"></i> View
+              </a>
+            </div>
+            <ul class="rdoc-list">
+              <li>Architected a full GitOps pipeline to deploy containerized microservices to AWS EKS using ArgoCD.</li>
+              <li>Automated infrastructure provisioning with Terraform, ensuring environment parity between Dev and Prod.</li>
+              <li>Applied Shift-Left security by integrating Checkov and tfsec to scan IaC templates for misconfigurations during the PR stage.</li>
+              <li>Deployed and managed 3+ microservices on AWS EKS — reduced deployment time by <strong>30%</strong> using GitOps pipeline.</li>
             </ul>
           </div>
 
-          <div class="resume-item">
-            <div class="resume-item-header">
+          <div class="rdoc-item">
+            <div class="rdoc-item-head">
               <div>
-                <h4>Backend Developer Intern</h4>
-                <p class="resume-company">Another Company · Remote</p>
+                <h4>AWS Free Tier Usage Monitor</h4>
+                <p class="rdoc-company">Python · boto3 · AWS Cost Explorer · GitHub Actions · Streamlit</p>
               </div>
-              <span class="resume-date">Jan 2024 — May 2024</span>
+              <a href="https://github.com/itsiiie" target="_blank" class="rdoc-link accent">
+                <i class="fab fa-github"></i> View
+              </a>
             </div>
-            <ul>
-              <li>Built and documented REST APIs using Node.js and Express serving 10k+ requests/day</li>
-              <li>Implemented JWT authentication, rate limiting, and Redis caching</li>
-              <li>Wrote unit and integration tests with 80%+ code coverage</li>
+            <ul class="rdoc-list">
+              <li>Developed a serverless monitoring tool using Boto3 to track real-time AWS cost and usage data across 4 services.</li>
+              <li>Automated reporting via GitHub Actions — alerts when usage exceeds 80% of Free Tier limits.</li>
+              <li>Built a Streamlit dashboard for visualization, reducing manual infrastructure tracking effort.</li>
+            </ul>
+          </div>
+
+          <div class="rdoc-item">
+            <div class="rdoc-item-head">
+              <div>
+                <h4>AWS CLI Automation Tool (aws-ops)</h4>
+                <p class="rdoc-company">Python · boto3 · AWS EC2</p>
+              </div>
+              <a href="https://github.com/itsiiie" target="_blank" class="rdoc-link accent">
+                <i class="fab fa-github"></i> View
+              </a>
+            </div>
+            <ul class="rdoc-list">
+              <li>Built a Python CLI to manage cross-region EC2 lifecycles (Start/Stop/Status).</li>
+              <li>Streamlined routine cloud operations, reducing time spent on manual AWS Console navigation.</li>
             </ul>
           </div>
         </div>
 
-        <div class="resume-section">
-          <h3 class="resume-section-title"><span class="neon">//</span> Education</h3>
-          <div class="resume-item">
-            <div class="resume-item-header">
+        <!-- SKILLS -->
+        <div class="rdoc-section">
+          <h3 class="rdoc-title"><span class="accent">//</span> Technical Skills</h3>
+          <div class="rdoc-skills">
+            <div class="rdoc-skill-row">
+              <span class="rdoc-skill-cat">Cloud</span>
+              <span>AWS — EC2, S3, RDS, Lambda, ECR, EKS, IAM, Secrets Manager, CloudWatch, Cost Explorer</span>
+            </div>
+            <div class="rdoc-skill-row">
+              <span class="rdoc-skill-cat">DevOps</span>
+              <span>GitHub Actions, Jenkins, ArgoCD (GitOps), Docker, Kubernetes, Helm</span>
+            </div>
+            <div class="rdoc-skill-row">
+              <span class="rdoc-skill-cat">IaC</span>
+              <span>Terraform, Ansible, Checkov, tfsec</span>
+            </div>
+            <div class="rdoc-skill-row">
+              <span class="rdoc-skill-cat">Security</span>
+              <span>Trivy, Snyk, SonarQube, OIDC Auth, Shift-Left Security</span>
+            </div>
+            <div class="rdoc-skill-row">
+              <span class="rdoc-skill-cat">Monitoring</span>
+              <span>Prometheus, Grafana, Alertmanager, AWS CloudWatch</span>
+            </div>
+            <div class="rdoc-skill-row">
+              <span class="rdoc-skill-cat">Backend</span>
+              <span>Python (Flask, Django, boto3), SQL, REST API Development, Streamlit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="rdoc-section">
+          <h3 class="rdoc-title"><span class="accent">//</span> Education</h3>
+          <div class="rdoc-item">
+            <div class="rdoc-item-head">
               <div>
                 <h4>B.Tech — Computer Science & Engineering</h4>
-                <p class="resume-company">Your College Name</p>
+                <p class="rdoc-company">University of Engineering & Management, Jaipur</p>
               </div>
-              <span class="resume-date">2022 — 2026</span>
+              <span class="rdoc-date">Aug 2022 – Jun 2026</span>
             </div>
-            <p>CGPA: X.XX / 10 &nbsp;·&nbsp; Relevant: Cloud Computing, OS, DBMS, Computer Networks</p>
-          </div>
-        </div>
-
-        <div class="resume-section">
-          <h3 class="resume-section-title"><span class="neon">//</span> Projects</h3>
-
-          <div class="resume-item">
-            <div class="resume-item-header">
-              <h4>CI/CD Pipeline on AWS</h4>
-              <a href="https://github.com/yourusername/project" target="_blank" class="neon small-link"><i class="fab fa-github"></i> View</a>
-            </div>
-            <p>GitHub Actions → Docker build → Push to ECR → Deploy to ECS Fargate. Zero-downtime rolling deploys with health checks and rollback on failure.</p>
-            <div class="resume-tags"><span>AWS ECS</span><span>Docker</span><span>GitHub Actions</span><span>Terraform</span></div>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-item-header">
-              <h4>Kubernetes Monitoring Stack</h4>
-              <a href="https://github.com/yourusername/project" target="_blank" class="neon small-link"><i class="fab fa-github"></i> View</a>
-            </div>
-            <p>Deployed Prometheus + Grafana + Alertmanager on local k8s cluster using Helm charts. Built custom dashboards for CPU, memory, pod health, and HTTP metrics.</p>
-            <div class="resume-tags"><span>Kubernetes</span><span>Prometheus</span><span>Grafana</span><span>Helm</span></div>
-          </div>
-
-        </div>
-
-        <div class="resume-section two-col">
-          <div>
-            <h3 class="resume-section-title"><span class="neon">//</span> Skills</h3>
-            <div class="resume-skills">
-              <div class="skill-row"><span class="skill-label">Cloud</span><span>AWS (EC2, S3, ECS, RDS, Lambda)</span></div>
-              <div class="skill-row"><span class="skill-label">DevOps</span><span>Docker, Kubernetes, GitHub Actions, Terraform</span></div>
-              <div class="skill-row"><span class="skill-label">Backend</span><span>Node.js, Python, FastAPI, PostgreSQL, Redis</span></div>
-              <div class="skill-row"><span class="skill-label">Tools</span><span>Linux, Git, Nginx, Prometheus, Grafana</span></div>
-            </div>
-          </div>
-          <div>
-            <h3 class="resume-section-title"><span class="neon">//</span> Certifications</h3>
-            <div class="resume-item">
-              <h4>AWS Cloud Practitioner</h4>
-              <p class="resume-company">Amazon Web Services · 2023</p>
-            </div>
-            <div class="resume-item">
-              <h4>Add More Here</h4>
-              <p class="resume-company">Issuer · Year</p>
-            </div>
+            <p style="color:var(--muted); font-size:0.875rem;">CGPA: <strong style="color:var(--accent)">7.5 / 10</strong> &nbsp;·&nbsp; Relevant: Cloud Computing, OS, DBMS, Computer Networks, Distributed Systems</p>
           </div>
         </div>
 
       </div>
 
-      <!-- ===== PDF EMBED ===== -->
-      <div class="pdf-section reveal-up">
-        <h3 class="section-tag">PDF Version</h3>
-        <p class="contact-sub">Replace <code>assets/images/resume.pdf</code> with your actual resume file.</p>
-        <div class="pdf-embed-wrapper">
-          <iframe
-            src="assets/images/resume.pdf"
-            class="pdf-embed"
-            title="Resume PDF">
-            <p>Your browser doesn't support PDF embed. <a href="assets/images/resume.pdf" class="neon">Download it here.</a></p>
+      <!-- PDF EMBED -->
+      <div class="pdf-block reveal">
+        <h3 class="eyebrow" style="margin-bottom:1.5rem;">PDF Version</h3>
+        <p style="color:var(--muted); font-size:0.875rem; margin-bottom:1.5rem;">
+          Add your resume PDF at <code>assets/Shashank_Resume.pdf</code> to enable the embed below.
+        </p>
+        <div class="pdf-frame-wrap">
+          <iframe src="assets/Shashank_Resume.pdf" class="pdf-frame" title="Shashank Kumar Singh — Resume">
+            <p>PDF not loading? <a href="assets/Shashank_Resume.pdf" class="accent">Download it here</a>.</p>
           </iframe>
         </div>
       </div>
@@ -175,9 +220,12 @@
   </div>
 
   <footer class="footer">
-    <div class="container">
-      <p>Designed & built by <span class="neon">Your Name</span></p>
-      <p class="footer-sub">Deployed via <span class="neon">GitHub Actions</span> · Hosted on <span class="neon">GitHub Pages</span></p>
+    <div class="wrap footer-inner">
+      <span class="footer-brand">SK<span class="accent">.</span></span>
+      <p>Shashank Kumar Singh · DevOps & Cloud Engineer</p>
+      <p class="footer-meta">
+        Deployed via <span class="accent">GitHub Actions</span> · Hosted on <span class="accent">GitHub Pages</span>
+      </p>
     </div>
   </footer>
 
