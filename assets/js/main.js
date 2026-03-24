@@ -127,11 +127,11 @@ if (canvas) {
 const typed = document.getElementById('typed');
 if (typed) {
   const words = [
-    ' scalable infra.',
-    ' CI/CD pipelines.',
-    ' DevSecOps systems.',
-    ' cloud automation.',
-    ' things that ship.',
+    'scalable infra.',
+    'CI/CD pipelines.',
+    'DevSecOps systems.',
+    'cloud automation.',
+    'things that ship.',
   ];
   let wi = 0, ci = 0, del = false;
 

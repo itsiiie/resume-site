@@ -1619,10 +1619,3 @@ code {
     display: none;
   }
 }
-
-.logo {
-  height: 40px;
-  /* control size */
-  width: auto;
-  /* keep aspect ratio */
-}
