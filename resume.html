@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume — Your Name</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">YN<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#projects">projects</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+      <li><a href="resume.html" class="nav-resume-btn active">resume</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- RESUME PAGE HEADER -->
+  <div class="resume-page-hero">
+    <div class="container">
+      <p class="hero-greeting reveal-up">my</p>
+      <h1 class="hero-name reveal-up delay-1">Resume<span class="cursor-blink">_</span></h1>
+      <a href="assets/images/resume.pdf" download class="btn btn-primary reveal-up delay-2">
+        <i class="fas fa-download"></i> Download PDF
+      </a>
+    </div>
+  </div>
+
+  <div class="resume-wrapper">
+    <div class="container">
+
+      <!-- ===== HTML RESUME ===== -->
+      <div class="resume-html reveal-up">
+
+        <div class="resume-header-card">
+          <h2>Your Full Name</h2>
+          <p class="resume-role">DevOps & Cloud Engineer · B.Tech CSE</p>
+          <div class="resume-contacts">
+            <span><i class="fas fa-envelope"></i> your@email.com</span>
+            <span><i class="fab fa-github"></i> github.com/yourusername</span>
+            <span><i class="fab fa-linkedin"></i> linkedin.com/in/yourusername</span>
+            <span><i class="fas fa-map-marker-alt"></i> Your City, India</span>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title"><span class="neon">//</span> Summary</h3>
+          <p>B.Tech Computer Science student specializing in DevOps, cloud infrastructure, and backend development. Experienced with AWS, Docker, Kubernetes, and CI/CD pipeline automation. Passionate about building reliable, scalable systems and automating everything possible.</p>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title"><span class="neon">//</span> Experience</h3>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div>
+                <h4>DevOps Intern</h4>
+                <p class="resume-company">Company Name · Remote</p>
+              </div>
+              <span class="resume-date">Jun 2024 — Present</span>
+            </div>
+            <ul>
+              <li>Automated deployment pipeline using GitHub Actions + AWS ECS, reducing deploy time by 85%</li>
+              <li>Dockerized 3 legacy applications, enabling consistent dev/staging/prod environments</li>
+              <li>Set up Prometheus + Grafana monitoring for production services</li>
+            </ul>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div>
+                <h4>Backend Developer Intern</h4>
+                <p class="resume-company">Another Company · Remote</p>
+              </div>
+              <span class="resume-date">Jan 2024 — May 2024</span>
+            </div>
+            <ul>
+              <li>Built and documented REST APIs using Node.js and Express serving 10k+ requests/day</li>
+              <li>Implemented JWT authentication, rate limiting, and Redis caching</li>
+              <li>Wrote unit and integration tests with 80%+ code coverage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title"><span class="neon">//</span> Education</h3>
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <div>
+                <h4>B.Tech — Computer Science & Engineering</h4>
+                <p class="resume-company">Your College Name</p>
+              </div>
+              <span class="resume-date">2022 — 2026</span>
+            </div>
+            <p>CGPA: X.XX / 10 &nbsp;·&nbsp; Relevant: Cloud Computing, OS, DBMS, Computer Networks</p>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title"><span class="neon">//</span> Projects</h3>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h4>CI/CD Pipeline on AWS</h4>
+              <a href="https://github.com/yourusername/project" target="_blank" class="neon small-link"><i class="fab fa-github"></i> View</a>
+            </div>
+            <p>GitHub Actions → Docker build → Push to ECR → Deploy to ECS Fargate. Zero-downtime rolling deploys with health checks and rollback on failure.</p>
+            <div class="resume-tags"><span>AWS ECS</span><span>Docker</span><span>GitHub Actions</span><span>Terraform</span></div>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-header">
+              <h4>Kubernetes Monitoring Stack</h4>
+              <a href="https://github.com/yourusername/project" target="_blank" class="neon small-link"><i class="fab fa-github"></i> View</a>
+            </div>
+            <p>Deployed Prometheus + Grafana + Alertmanager on local k8s cluster using Helm charts. Built custom dashboards for CPU, memory, pod health, and HTTP metrics.</p>
+            <div class="resume-tags"><span>Kubernetes</span><span>Prometheus</span><span>Grafana</span><span>Helm</span></div>
+          </div>
+
+        </div>
+
+        <div class="resume-section two-col">
+          <div>
+            <h3 class="resume-section-title"><span class="neon">//</span> Skills</h3>
+            <div class="resume-skills">
+              <div class="skill-row"><span class="skill-label">Cloud</span><span>AWS (EC2, S3, ECS, RDS, Lambda)</span></div>
+              <div class="skill-row"><span class="skill-label">DevOps</span><span>Docker, Kubernetes, GitHub Actions, Terraform</span></div>
+              <div class="skill-row"><span class="skill-label">Backend</span><span>Node.js, Python, FastAPI, PostgreSQL, Redis</span></div>
+              <div class="skill-row"><span class="skill-label">Tools</span><span>Linux, Git, Nginx, Prometheus, Grafana</span></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="resume-section-title"><span class="neon">//</span> Certifications</h3>
+            <div class="resume-item">
+              <h4>AWS Cloud Practitioner</h4>
+              <p class="resume-company">Amazon Web Services · 2023</p>
+            </div>
+            <div class="resume-item">
+              <h4>Add More Here</h4>
+              <p class="resume-company">Issuer · Year</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== PDF EMBED ===== -->
+      <div class="pdf-section reveal-up">
+        <h3 class="section-tag">PDF Version</h3>
+        <p class="contact-sub">Replace <code>assets/images/resume.pdf</code> with your actual resume file.</p>
+        <div class="pdf-embed-wrapper">
+          <iframe
+            src="assets/images/resume.pdf"
+            class="pdf-embed"
+            title="Resume PDF">
+            <p>Your browser doesn't support PDF embed. <a href="assets/images/resume.pdf" class="neon">Download it here.</a></p>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Designed & built by <span class="neon">Your Name</span></p>
+      <p class="footer-sub">Deployed via <span class="neon">GitHub Actions</span> · Hosted on <span class="neon">GitHub Pages</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

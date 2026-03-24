@@ -1,222 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Professional Portfolio - DevOps Engineer & Full Stack Developer"
-    />
-    <meta name="theme-color" content="#0a0a0a" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name — DevOps & Cloud Engineer</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
 
-    <title>Portfolio | DevOps Engineer</title>
+  <!-- ========== CURSOR ========== -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
 
-    <link rel="icon" type="image/png" href="devops.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-      <div class="nav-container">
-        <a href="#home" class="logo">Portfolio</a>
-        <div class="nav-links">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#resume" class="nav-link">Resume</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  <!-- ========== NAV ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">YN<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="resume.html" class="nav-resume-btn">resume</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting reveal-up">Hey there, I'm</p>
+      <h1 class="hero-name reveal-up delay-1">Your Name<span class="cursor-blink">_</span></h1>
+      <div class="hero-roles reveal-up delay-2">
+        <span class="role-prefix">I build &nbsp;</span>
+        <span class="typed-text" id="typed"></span>
       </div>
-    </nav>
+      <p class="hero-desc reveal-up delay-3">
+        B.Tech CSE student obsessed with DevOps, cloud infrastructure, and shipping things that actually work in production.
+      </p>
+      <div class="hero-cta reveal-up delay-4">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="resume.html" class="btn btn-ghost">Resume <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="hero-socials reveal-up delay-5">
+        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-background"></div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <p class="hero-label">Welcome to my portfolio</p>
-          <h1 class="hero-title">
-            <span class="title-line">DevOps</span>
-            <span class="title-line">Engineer</span>
-          </h1>
-          <p class="hero-description">
-            Building scalable infrastructure and automating workflows for modern
-            applications.
+  <!-- ========== ABOUT ========== -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <div class="section-tag reveal-fade">about me</div>
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <h2>Building the infra <span class="neon">behind the code.</span></h2>
+          <p>
+            I'm a Computer Science student at [Your College], passionate about the intersection of software development and cloud infrastructure. I don't just write code — I think about how it gets deployed, scaled, and monitored in production.
           </p>
-          <div class="hero-actions">
-            <a href="#resume" class="btn btn-primary">View Resume</a>
-            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-          </div>
-        </div>
-      </div>
-      <div class="scroll-indicator">
-        <span></span>
-      </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section class="resume-section" id="resume">
-      <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title">Resume</h2>
-          <p class="section-subtitle">
-            Download or view my professional experience
+          <p>
+            Currently diving deep into AWS, Docker, Kubernetes, and CI/CD pipelines. I believe in automating everything that can be automated and building systems that recover gracefully when things go wrong.
           </p>
-        </div>
-
-        <div class="resume-viewer">
-          <div class="viewer-wrapper">
-            <iframe
-              src="resume.pdf"
-              class="pdf-frame"
-              title="Resume PDF"
-              loading="lazy"
-            ></iframe>
+          <div class="about-stats">
+            <div class="stat"><span class="stat-num neon">10+</span><span class="stat-label">Projects Shipped</span></div>
+            <div class="stat"><span class="stat-num neon">5+</span><span class="stat-label">AWS Services Used</span></div>
+            <div class="stat"><span class="stat-num neon">∞</span><span class="stat-label">Bugs Debugged</span></div>
           </div>
-
-          <div class="resume-actions">
-            <a
-              href="Shashank_DevOps_Engineer.pdf"
-              download
-              class="action-btn download-btn"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download PDF
-            </a>
-            <button class="action-btn" id="printBtn">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6 9 6 2 18 2 18 9" />
-                <path
-                  d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
-                />
-                <rect x="6" y="14" width="12" height="8" />
-              </svg>
-              Print
-            </button>
-            <button class="action-btn" id="shareBtn">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="18" cy="5" r="3" />
-                <circle cx="6" cy="12" r="3" />
-                <circle cx="18" cy="19" r="3" />
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-              </svg>
-              Share
-            </button>
+        </div>
+        <div class="about-visual reveal-right">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span class="t-dot red"></span>
+              <span class="t-dot yellow"></span>
+              <span class="t-dot green"></span>
+              <span class="t-title">whoami.sh</span>
+            </div>
+            <div class="terminal-body">
+              <p><span class="t-prompt">$</span> whoami</p>
+              <p class="t-output neon">your-name</p>
+              <p><span class="t-prompt">$</span> cat interests.txt</p>
+              <p class="t-output">DevOps, Cloud, Backend Dev</p>
+              <p class="t-output">CI/CD, Docker, Kubernetes</p>
+              <p class="t-output">AWS, Linux, Open Source</p>
+              <p><span class="t-prompt">$</span> echo $STATUS</p>
+              <p class="t-output neon">open to internships ✓</p>
+              <p><span class="t-prompt">$</span> <span class="t-cursor">█</span></p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact Section (Placeholder for portfolio expansion) -->
-    <section class="contact-section" id="contact">
-      <div class="section-container">
-        <div class="section-header">
-          <h2 class="section-title">Get in Touch</h2>
-          <p class="section-subtitle">Let's discuss your next project</p>
-        </div>
+  <!-- ========== SKILLS ========== -->
+  <section class="skills section-pad" id="skills">
+    <div class="container">
+      <div class="section-tag reveal-fade">skills</div>
+      <h2 class="section-title reveal-up">My Tech Stack</h2>
+      <div class="skills-grid">
 
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="contact-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-            </div>
-            <h3>Email</h3>
-            <p>mdpkdy@gmail.com.com</p>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </div>
-            <h3>LinkedIn</h3>
-            <p>linkedin.com/in/</p>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                />
-              </svg>
-            </div>
-            <h3>GitHub</h3>
-            <p>github.com/yourusername</p>
+        <div class="skill-category reveal-up delay-1">
+          <h3><i class="fas fa-code"></i> Languages</h3>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Java</span>
+            <span class="tag">Bash</span>
+            <span class="tag">SQL</span>
           </div>
         </div>
+
+        <div class="skill-category reveal-up delay-2">
+          <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+          <div class="skill-tags">
+            <span class="tag neon-tag">AWS</span>
+            <span class="tag neon-tag">Docker</span>
+            <span class="tag neon-tag">Kubernetes</span>
+            <span class="tag neon-tag">GitHub Actions</span>
+            <span class="tag neon-tag">Terraform</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal-up delay-3">
+          <h3><i class="fas fa-server"></i> Backend</h3>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal-up delay-4">
+          <h3><i class="fas fa-tools"></i> Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">Git</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+          </div>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2026 Portfolio. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
+  <!-- ========== PROJECTS ========== -->
+  <section class="projects section-pad" id="projects">
+    <div class="container">
+      <div class="section-tag reveal-fade">projects</div>
+      <h2 class="section-title reveal-up">Things I've Built</h2>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- ===== PROJECT CARD — COPY THIS BLOCK TO ADD A NEW PROJECT ===== -->
+        <div class="project-card reveal-up delay-1">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-rocket"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/yourusername/project" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://yourproject.live" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">CI/CD Pipeline on AWS</h3>
+          <p class="project-desc">
+            Automated deployment pipeline using GitHub Actions, Docker, and AWS ECS. Reduced deploy time from 20 minutes to under 3 minutes with zero-downtime rolling updates.
+          </p>
+          <div class="project-tags">
+            <span>AWS ECS</span><span>Docker</span><span>GitHub Actions</span><span>Terraform</span>
+          </div>
         </div>
+        <!-- ===== END PROJECT CARD ===== -->
+
+        <div class="project-card reveal-up delay-2">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Kubernetes Monitoring Stack</h3>
+          <p class="project-desc">
+            Set up a full observability stack with Prometheus, Grafana, and Alertmanager on a local Kubernetes cluster. Includes custom dashboards and alerting rules.
+          </p>
+          <div class="project-tags">
+            <span>Kubernetes</span><span>Prometheus</span><span>Grafana</span><span>Helm</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-3">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-database"></i></div>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">REST API with Auth</h3>
+          <p class="project-desc">
+            Production-ready REST API built with Node.js and Express. Features JWT auth, rate limiting, PostgreSQL, Redis caching, and Dockerized deployment.
+          </p>
+          <div class="project-tags">
+            <span>Node.js</span><span>PostgreSQL</span><span>Docker</span><span>Redis</span>
+          </div>
+        </div>
+
       </div>
-    </footer>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
+      <div class="projects-more reveal-fade">
+        <a href="https://github.com/yourusername" target="_blank" class="btn btn-ghost">
+          More on GitHub <i class="fab fa-github"></i>
+        </a>
+      </div>
 
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE / TIMELINE ========== -->
+  <section class="experience section-pad" id="experience">
+    <div class="container">
+      <div class="section-tag reveal-fade">journey</div>
+      <h2 class="section-title reveal-up">Experience & Education</h2>
+      <div class="timeline">
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2024 — Present</span>
+            <h3>DevOps Intern</h3>
+            <p class="timeline-company">Company Name · Remote</p>
+            <p>Worked on automating deployments using GitHub Actions and AWS. Containerized legacy applications with Docker and helped migrate infra to ECS.</p>
+            <div class="timeline-tags"><span>AWS</span><span>Docker</span><span>CI/CD</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2022 — 2026</span>
+            <h3>B.Tech Computer Science</h3>
+            <p class="timeline-company">Your College Name</p>
+            <p>Focused on cloud computing, distributed systems, and software engineering. Active in the coding club and open source community.</p>
+            <div class="timeline-tags"><span>CSE</span><span>Cloud Computing</span><span>DSA</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023</span>
+            <h3>AWS Cloud Practitioner</h3>
+            <p class="timeline-company">Amazon Web Services · Certification</p>
+            <p>Cleared foundational AWS certification covering core services, security, pricing, and architecture best practices.</p>
+            <div class="timeline-tags"><span>AWS</span><span>Cloud</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GITHUB STATS ========== -->
+  <section class="github-stats section-pad" id="stats">
+    <div class="container">
+      <div class="section-tag reveal-fade">open source</div>
+      <h2 class="section-title reveal-up">GitHub Activity</h2>
+      <div class="stats-grid reveal-up delay-1">
+        <img src="https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=transparent&hide_border=true&title_color=00f5ff&text_color=ffffff&icon_color=00f5ff" alt="GitHub Stats" class="github-stat-img"/>
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=transparent&hide_border=true&title_color=00f5ff&text_color=ffffff" alt="Top Languages" class="github-stat-img"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="section-tag reveal-fade">contact</div>
+      <h2 class="section-title reveal-up">Let's Connect</h2>
+      <p class="contact-sub reveal-up delay-1">Open to internships, collaborations, or just a good tech conversation.</p>
+      <div class="contact-links reveal-up delay-2">
+        <a href="mailto:your@email.com" class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <span>your@email.com</span>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" class="contact-card">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed & built by <span class="neon">Your Name</span></p>
+      <p class="footer-sub">Deployed via <span class="neon">GitHub Actions</span> · Hosted on <span class="neon">GitHub Pages</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
